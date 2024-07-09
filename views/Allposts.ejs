@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <nav class="blog">
+        <a href="allposts">MY BLOG</a>
+        <a href="ajoutPost">Nouveau post</a>
+        <!-- <a href="">Contactez-nous</a>
+        <a href="">A propos</a> -->
+    </nav>
+        <h1>Bienvenue sur la page</h1>
+        <h2>Voici les posts</h2>
+
+    </h2>
+    <%= data %>
+    <% data.forEach(post =>{ %>
+        <a href="/blog/<%= post._id %>">
+            <h2>
+                <%= post._id %>
+            </h2>
+        </a>
+        <h2>
+            <%= post.sujet %>
+        </h2>
+        
+        <p>
+            <%= post.auteur %>
+        </p>
+
+        <p><%= post.description %></p>
+        <p><%= post.message %></p>
+
+        <a href="/blog/<%= post._id %>">Cliquez ici pour éditer le post</a>
+
+    <% }) %>
+
+
+
+
+
+</body>
+</html>

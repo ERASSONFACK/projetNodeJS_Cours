@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- On crée ici une vue, ou un affichage -->
+    <%= data %>
+    
+    <h3>Mise à jour</h3>
+        <form action="/updatecontact/<%= data._id %>?_method=PUT" method="post">
+
+            <!-- pour que la méthode envoyée dans le cotrôleur soit un PUT au lieu d'un post -->
+            <input type="hidden" name="_method" value="PUT">
+
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" value="<%= data.nom %>">
+            <label for="prenom">Prénom</label>
+            <input type="text" name="prenom" value="<%= data.prenom %>">
+            <label for="email">E-mail</label>
+            <input type="text" name="email" value="<%= data.email %>">
+            <textarea name="message" id="message">
+                <%= data.Message %>
+            </textarea>
+        
+            <input type="submit">
+        
+        </form>
+
+        <h3>Suppression de la donnée</h3>
+
+        <form action="/deletecontact/<%= data._id %>?_method=DELETE" method="post">
+            <input type="submit" value="Supprimer la donnée">
+        </form>
+        
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!-- On crée ici une vue, ou un affichage -->
+<%= data %>
+    
+<h3>Mise à jour</h3>
+    <form action="/updatecars/<%= data._id %>?_method=PUT" method="post">
+
+        <!-- pour que la méthode envoyée dans le cotrôleur soit un PUT au lieu d'un post -->
+    <input type="hidden" name="_method" value="PUT">
+
+    <label for="marque">sujet</label>
+    <input type="text" name="marque" value="<%= data.marque %>">
+    <label for="modele">Modèle</label>
+    <input type="text" name="modele" value="<%= data.modele %>">
+    <textarea name="description" id="description">Description</textarea>
+    <label for="prix">Prix du véhicule</label>
+    <input type="number" id="prix" name="prix"value="<%= data.prix%>">
+    <label for="image">Image</label>
+    <input type="file" id="image" name="image" value="<%= data.image%>">
+    <label for="date">Date de mise ne ligne</label>
+    <input type="date" id="date" name="date" value="<%= data.date%>">
+
+    <input type="submit" value="modifier le véhicule">
+
+</form>
+
+<h3>Suppression du véhicule</h3>
+
+    <form action="/deletecars/<%= data._id %>?_method=DELETE" method="post">
+        <input type="submit" value="Supprimer le vehicule" class="btn ntn-danger">
+    </form>

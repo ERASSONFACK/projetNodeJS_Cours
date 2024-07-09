@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="blog">
+        <a href="">MY BLOG</a>
+        <a href="">Nouveau post</a>
+        <!-- <a href="">Contactez-nous</a>
+        <a href="">A propos</a> -->
+    </nav>
+
+    <!-- On crée ici une vue, ou un affichage -->
+    <%= data %>
+    
+    <h3>Mise à jour</h3>
+        <form action="/updatepost/<%= data._id %>?_method=PUT" method="post">
+
+            <!-- pour que la méthode envoyée dans le cotrôleur soit un PUT au lieu d'un post -->
+        <input type="hidden" name="_method" value="PUT">
+
+        <label for="sujet">sujet</label>
+        <input type="text" name="sujet" value="<%= data.sujet %>">
+        <label for="auteur">Auteur</label>
+        <input type="text" name="auteur" value="<%= data.auteur %>">
+        <textarea name="description" id="description">Description</textarea>
+        <textarea name="message" id="message">Message</textarea>
+
+        <input type="submit">
+    
+    </form>
+
+    <h3>Suppression de la donnée</h3>
+
+        <form action="/deletepost/<%= data._id %>?_method=DELETE" method="post">
+            <input type="submit" value="Supprimer le post">
+        </form>
+
+
+</body>
+</html>

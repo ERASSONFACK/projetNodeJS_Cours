@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="/allcars">Tous les véhicules</a>
+        <a href="/nouveauvehicule">Nouveau Véhicules</a>
+    </nav>
+
+    <h1>Bienvenue sur la page</h1>
+    <h2>Voici les Véhicules</h2>
+
+</h2>
+<%= data %>
+<% data.forEach(cars =>{ %>
+    <a href="/editcars/<%= cars._id %>">
+        <h2>
+            <%= cars._id %>
+        </h2>
+    </a>
+    <h2>
+        <%= cars.marque %>
+    </h2>
+    
+    <p>
+        <%= cars.modele %>
+    </p>
+
+    <p><%= cars.description %></p>
+    <p><%= cars.prix %></p>
+    
+    <a href="/editcars/<%= cars._id %>"></a>
+    <button class="btn btn-warning">Editer</button>
+
+
+
+    <form action="/deletecars/<%= data._id %>?_method=DELETE" method="post">
+        <input type="submit" value="Supprimer le vehicule" class="btn btn-danger">
+
+
+<% }) %>
+
+
+
+</body>
+</html>
